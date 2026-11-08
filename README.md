@@ -64,3 +64,15 @@ curl -X POST "https://api.apify.com/v2/acts/datakit~kalibrr-jobs-feed/run-sync-g
 Store page: https://apify.com/datakit/kalibrr-jobs-feed  (free to try; you only pay Apify platform usage)
 
 Made by [datakit](https://github.com/datakit457). Part of the [datakit tools list](https://datakit457.github.io/).
+
+## FAQ
+**Why did my first run return everything?** The first run has no history, so every matching job is new. Later runs with the same State name return only unseen jobs.
+
+**Can I get a feed for several searches?** Use one State name per keyword/city set so each keeps its own "already seen" list.
+
+**Are salaries included?** Only when the employer shows one on the listing; otherwise the field is empty.
+
+**Is it free?** Platform usage only (a typical run costs a fraction of a cent of compute).
+
+## Data and compliance
+Public job-search pages only (no login, robots.txt permits it). Company job postings only, no candidate profiles or personal data. Please respect Kalibrr's terms for how you use the data.
