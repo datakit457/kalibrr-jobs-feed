@@ -43,6 +43,16 @@
 ## Data and compliance
 Public job-search pages only (no login, robots.txt permits it). Company job postings only, no candidate profiles or personal data. Please respect Kalibrr's terms for how you use the data.
 
+## Run it locally (free, no account)
+`kalibrr-jobs.mjs` in this repo is a single-file, zero-dependency command-line version (Node 18+) of the same logic. Use it for a one-off export or a daily cron job on your own machine; use the hosted Actor if you want scheduling and storage without running anything.
+```bash
+curl -O https://raw.githubusercontent.com/datakit457/kalibrr-jobs-feed/main/kalibrr-jobs.mjs
+node kalibrr-jobs.mjs --keywords developer --cities makati,taguig > jobs.csv
+# only jobs not seen on the previous run (state kept in .kalibrr-seen.json):
+node kalibrr-jobs.mjs --new --wfh --format jsonl
+```
+Options: `--keywords a,b`, `--cities a,b`, `--functions "IT and Software"`, `--wfh`, `--new [--state file]`, `--max N`, `--format csv|jsonl`, `--description`. Progress goes to stderr, data to stdout.
+
 ## Call it from code
 Get a token at https://console.apify.com/settings/integrations, then:
 
